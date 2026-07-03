@@ -7,7 +7,7 @@
     "test": "python -m pytest -q"
   },
   "dependencies": {
-    "lodash": "4.17.20"
+    "lodash": "4.17.21"
   },
   "devDependencies": {
     "eslint": "8.57.0"

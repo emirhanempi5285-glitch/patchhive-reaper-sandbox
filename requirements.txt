@@ -1,4 +1,4 @@
 # Runtime dependencies intentionally include stale entries for PatchHive fixture scans.
-requests==2.31.0
-Django==2.2.0
+requests==2.32.4
+Django==4.2.23
 PyYAML==5.3.1
