@@ -1,0 +1,1 @@
+This file intentionally forces the PatchHive controlled-check workflow to fail.
