@@ -1,0 +1,36 @@
+name: PatchHive CI Fixture
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    name: Unit fixture tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Run sandbox tests
+        run: python -m pytest -q
+
+  controlled-check:
+    name: Controlled merge check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Fail when fixture marker exists
+        run: |
+          if [ -f fixtures/checks/force_fail.txt ]; then
+            echo "PatchHive controlled failure marker detected."
+            exit 1
+          fi
+          echo "No controlled failure marker present."

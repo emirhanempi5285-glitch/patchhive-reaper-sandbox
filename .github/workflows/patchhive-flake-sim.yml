@@ -1,0 +1,27 @@
+name: PatchHive Flake Simulation
+
+on:
+  workflow_dispatch:
+    inputs:
+      outcome:
+        description: "Pass or fail this fixture run"
+        required: true
+        default: "pass"
+        type: choice
+        options:
+          - pass
+          - fail
+
+jobs:
+  simulated-flaky-job:
+    name: Simulated flaky job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run flaky fixture
+        run: |
+          echo "Requested outcome: ${{ inputs.outcome }}"
+          if [ "${{ inputs.outcome }}" = "fail" ]; then
+            echo "Intentional PatchHive flaky failure."
+            exit 1
+          fi
+          echo "Intentional PatchHive flaky pass."

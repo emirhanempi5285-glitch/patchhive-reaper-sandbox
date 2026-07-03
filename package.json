@@ -1,0 +1,15 @@
+{
+  "name": "patchhive-reaper-sandbox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Controlled PatchHive product testing sandbox.",
+  "scripts": {
+    "test": "python -m pytest -q"
+  },
+  "dependencies": {
+    "lodash": "4.17.20"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0"
+  }
+}
