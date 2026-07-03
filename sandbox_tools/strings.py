@@ -1,9 +1,8 @@
 def slugify(value):
     """Convert a label into a URL-ish slug."""
-    return value.strip().replace(" ", "-")
+    return "-".join(value.strip().lower().split())
 
 
 def normalize_csv_name(value):
     """Normalize a CSV column name."""
-    return value.strip().lower()
-
+    return "_".join(value.replace(",", " ").strip().lower().split())
